@@ -13,6 +13,6 @@ export const TextField = (props) => {
 
 export const SubmitButton = (props) => {
     return (
-    <button className="button-formfield" type={props.type} > {props.label}</button>
+    <button className="button-formfield" type={props.type} onClick={props.onClick}> {props.label}</button>
     ) ;
 }

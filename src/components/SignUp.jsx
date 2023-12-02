@@ -6,6 +6,7 @@ import {TextField, SubmitButton} from "./FormFields";
 
 const SignUp = () => {
     return (
+        <div className="flex-container">
         <div className="container">
             <div className="login-header">
             <img src="https://leetcode.com/static/webpack_bundles/images/logo.c36eaf5e6.svg"></img>
@@ -22,6 +23,7 @@ const SignUp = () => {
                 <Link to="/">
                 <button className="signup-button">Log In</button>
                 </Link>
+            </div>
             </div>
             </div>
     ) ;
