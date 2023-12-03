@@ -1,30 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../css/problems.css"
+import { problemsApiCall } from "../utils/ApiCall";
 
-const problems = [{
-    id: "201.",
-    title: "Bitwise AND of Numbers Range",
-    difficulty: "Medium",
-    acceptance: "42%"
-}, {
-    id: "202.",
-    title: "Bitwise AND of Numbers Range",
-    difficulty: "Medium",
-    acceptance: "412%"
-},
-{
-    id: "203.",
-    title: "Happy Number",
-    difficulty: "Easy",
-    acceptance: "54.9%"
-},
-{
-    id: "204.",
-    title: "Remove Linked List Elements",
-    difficulty: "Hard",
-    acceptance: "42%"
-}];
+
+// const problems = [{
+//     id: "201.",
+//     title: "Bitwise AND of Numbers Range",
+//     difficulty: "Medium",
+//     acceptance: "42%"
+// }, {
+//     id: "202.",
+//     title: "Bitwise AND of Numbers Range",
+//     difficulty: "Medium",
+//     acceptance: "412%"
+// },
+// {
+//     id: "203.",
+//     title: "Happy Number",
+//     difficulty: "Easy",
+//     acceptance: "54.9%"
+// },
+// {
+//     id: "204.",
+//     title: "Remove Linked List Elements",
+//     difficulty: "Hard",
+//     acceptance: "42%"
+// }];
+
+
 
 const ProblemRow = (props) => {
     return (
@@ -42,8 +46,19 @@ const ProblemRow = (props) => {
 }
 
 const Problems = () => {
-    let accessToken = JSON.parse(localStorage.getItem("accessToken"));
-    console.log("accessToken: ", accessToken)
+    const [problems, setProblems] = useState([]);
+    React.useEffect(() => {
+        problemsApiCall().then((response) => {
+
+            console.log("questions response: ",response)
+            if (response && response.data) {
+                setProblems(response.data)
+            }
+        }).catch((err) => {
+            console.log("questions error: ",err)
+        })
+        
+    }, [])
     return (
         <div className="problem-table-container">
             <table className="styled-table">

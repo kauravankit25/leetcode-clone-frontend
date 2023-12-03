@@ -12,3 +12,15 @@ export const loginApiCall = async (params) => {
             data: response.data
         }
 }
+
+export const problemsApiCall = async () => {
+    let url = BASE_URL + "/questions?limit=10"
+    let accessToken = JSON.parse(localStorage.getItem("accessToken"));
+
+    let response = await axios.get(url,{ headers: {"authorization" : `Bearer ${accessToken}`} });
+
+        return {
+            status: response.status,
+            data: response.data ? response.data.data : null
+        }
+}
