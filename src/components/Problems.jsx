@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../css/problems.css"
 import { problemsApiCall } from "../utils/ApiCall";
 
@@ -31,11 +31,12 @@ import { problemsApiCall } from "../utils/ApiCall";
 
 
 const ProblemRow = (props) => {
+    const navigate = useNavigate();
     return (
         <tr>
             <td>{props.id}</td>
             
-            <td><Link to={"/"}><button className="problem-title-button">{props.title}</button></Link></td>
+            <td><button className="problem-title-button" onClick={() => navigate(`/problemSubmission/${props.id}`)}>{props.title}</button></td>
             
             <td>{props.acceptance}</td>
             <td style={{
@@ -47,6 +48,7 @@ const ProblemRow = (props) => {
 
 const Problems = () => {
     const [problems, setProblems] = useState([]);
+    
     React.useEffect(() => {
         problemsApiCall().then((response) => {
 
