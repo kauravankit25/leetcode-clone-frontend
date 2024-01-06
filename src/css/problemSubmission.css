@@ -1,0 +1,78 @@
+
+.flex-code-container{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.problem-description {
+    margin: 3vh;
+    width: 50%;
+    height: 95vh;
+    background-color: #ffffff12;
+    color: white;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.problem-description .description-div{
+    font-size: 14px;
+    margin: 10px;
+}
+
+.problem-description h2 {
+    margin: 30px 10px 10px 10px;
+    font-size: 1.125rem;
+}
+
+.problem-description .testcases-container {
+    font-size: 14px;
+    margin: 50px 10px;
+}
+
+.problem-description .testcases-container .example-container {
+    display: flex;
+    margin: 10px 0px;
+    margin-left: 30px;
+}
+
+.problem-description .testcases-container .example-container .vertical-line {
+    border-left: 1.5px solid rgb(26 26 26);  /* Adjust color and width as needed */
+    height: 50px;  /* Adjust height as needed */
+    margin-right: 10px;  /* Adjust margin as needed */
+  }
+
+  .problem-description .testcases-container .example-container .input-output-container {
+    display: block;
+  }
+
+.problem-description .constraint-container {
+    font-size: 14px;
+    margin: 10px;
+}
+
+.problem-description .constraint-container .constriants {
+    margin-left: 30px;
+}
+
+.editor-container {
+    margin: 3vh;
+    width: 50%;
+    height: 95vh;
+    background-color: #ffffff12;
+}
+
+.editor-header {
+    width: 100%;
+    background-color: #262626bf;;
+}
+
+
+.editor-container .code-submit-button {
+    float: right;
+    margin-top: 1%;
+    margin-bottom: 1.5%;
+    margin-right: 3%;
+    width: 100px;
+    height: 25px;
+}

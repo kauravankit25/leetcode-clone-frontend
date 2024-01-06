@@ -47,3 +47,15 @@ export const getProblemApiCall = async (id) => {
             data: response.data
         }
 }
+
+export const submitSolutionApi = async (params) => {
+    let url = BASE_URL + `/submissions`
+    let accessToken = JSON.parse(localStorage.getItem("accessToken"));
+
+    let response = await axios.post(url, params,{ headers: {"authorization" : `Bearer ${accessToken}`} });
+
+        return {
+            status: response.status,
+            data: response.data
+        }
+}
